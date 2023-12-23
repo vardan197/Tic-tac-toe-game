@@ -2,7 +2,7 @@ class Board:
 
     sell_dict = {}
 
-    def condition_of_board(self, sell_dict):
+    def condition_of_board(self):
         row1_4_7_9 = f'     |     |     \n'
         row2 = f'  {self.sell_dict[1]}  |  {self.sell_dict[2]}  |  {self.sell_dict[3]}  \n'
         row3_6 = f'_____|_____|_____\n'
@@ -68,17 +68,17 @@ class Game:
 
         while True:
 
-            self.board.condition_of_board(Board.sell_dict)
+            self.board.condition_of_board()
             self.player1.action(self.board, 'Х')
             self.moves_count += 1
 
             if self.board.check_end():
                 print(f'{self.player1.name} победил!')
-                self.board.condition_of_board(Board.sell_dict)
+                self.board.condition_of_board()
                 self.player1.quantity_of_wins += 1
                 break
 
-            self.board.condition_of_board(Board.sell_dict)
+            self.board.condition_of_board()
 
             if self.moves_count == 9:
                 print('Ничья!')
@@ -88,7 +88,7 @@ class Game:
 
             if self.board.check_end():
                 print(f'{self.player2.name} победил!')
-                self.board.condition_of_board(Board.sell_dict)
+                self.board.condition_of_board()
                 self.player2.quantity_of_wins += 1
                 break
 
